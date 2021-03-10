@@ -33,7 +33,7 @@ int main(void)
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
 	// Open a window and create its OpenGL context
-	window = glfwCreateWindow(1024, 768, "Tutorial 04 - Colored Cube", NULL, NULL);
+	window = glfwCreateWindow(1024, 768, "Pyramid", NULL, NULL);
 	if (window == NULL) {
 		fprintf(stderr, "Failed to open GLFW window. If you have an Intel GPU, they are not 3.3 compatible. Try the 2.1 version of the tutorials.\n");
 		getchar();
@@ -136,6 +136,7 @@ int main(void)
 		// camera
 		glm::mat4 ViewMatrix = glm::lookAt(
 			glm::vec3(r * std::cos(angle), 0.0f, r * std::sin(angle)),
+			// look more at the center
 			glm::vec3(-0.7f, 0, 0),
 			glm::vec3(0, 1, 0)
 		);
@@ -178,7 +179,7 @@ int main(void)
 		);
 
 		// Draw the triangle !
-		glDrawArrays(GL_TRIANGLES, 0, 6 * 3); // 12*3 indices starting at 0 -> 12 triangles
+		glDrawArrays(GL_TRIANGLES, 0, 6 * 3); 
 		glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
 
 		glDisableVertexAttribArray(0);
