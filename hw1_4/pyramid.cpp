@@ -135,8 +135,9 @@ int main(void)
 	do {
 		// camera
 		glm::mat4 ViewMatrix = glm::lookAt(
-			glm::vec3(r * std::cos(angle), 0.0f, r * std::sin(angle)),
-			// look more at the center
+			// move to the center of the pyramid
+			glm::vec3(r * std::cos(angle) - 0.6f, 0.0f, r * std::sin(angle)),
+			// look even more at the "weight" center
 			glm::vec3(-0.7f, 0, 0),
 			glm::vec3(0, 1, 0)
 		);
